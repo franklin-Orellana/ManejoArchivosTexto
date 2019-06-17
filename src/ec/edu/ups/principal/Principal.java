@@ -26,32 +26,30 @@ public class Principal {
      */
     public static void main(String[] args) throws IOException {
         //primero colocar la ruta.
-        ControladorTexto tc = new ControladorTexto();
+        ControladorTexto controlador = new ControladorTexto();
         Scanner sc = new Scanner(System.in);
         int i = 1;
-        int a;
 
         //Escribe la palabra
         System.out.println("Ingrese Texto a escribir");
         String palabra = sc.next();
-        tc.Escritura(palabra);
+        controlador.Escritura(palabra);
 
        //lee el archivo
-        tc.Lectura();
+        System.out.println("Lectura de Archivos:");
+        controlador.Lectura();
         //guarda el resultado en un txt
         String ruta = "archivos.txt";
         File archivo = new File(ruta);
         File[] archivos = archivo.listFiles();
         for (File newarchivo : archivos) {
             if (!newarchivo.getName().equals("Resultado.txt")) {
-                tc.LecturaResultado(ruta + "\\" + newarchivo.getName());
+                controlador.LecturaResultado(ruta + "\\" + newarchivo.getName());
             }
         }
-        tc.guardaResultado();
-        System.out.println("Gracias");
+        controlador.guardaResultado();
         i = 0;
         System.out.flush();
-        System.err.println("Ingrese Opcion Valida");
 
     }
 }

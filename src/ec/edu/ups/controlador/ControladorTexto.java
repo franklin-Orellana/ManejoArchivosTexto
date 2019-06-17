@@ -45,6 +45,7 @@ public class ControladorTexto {
          //todo lo que se abre se tiene que cerrar, sino queda abierta la conexion.
          escritura.append(palabra);
          escritura.newLine();
+         escritura.append(palabra);
 
          escritura.close();
          archivo.close();
