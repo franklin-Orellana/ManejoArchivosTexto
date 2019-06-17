@@ -18,6 +18,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import ec.edu.ups.clases.Texto;
 
 public class Principal {
 
@@ -27,6 +28,7 @@ public class Principal {
     public static void main(String[] args) throws IOException {
         //primero colocar la ruta.
         ControladorTexto controlador = new ControladorTexto();
+        Texto texto = new Texto();
         Scanner sc = new Scanner(System.in);
         int i = 1;
 
@@ -36,21 +38,21 @@ public class Principal {
         controlador.Escritura(palabra);
 
        //lee el archivo
+       try{
         System.out.println("Lectura de Archivos:");
         controlador.Lectura();
         //guarda el resultado en un txt
-        String ruta = "archivos.txt";
+        String ruta = "C:\\Users\\Fernanda\\Documents\\NetBeansProjects\\ManejoDeArchivosTexto\\src\\ec\\edu\\ups\\archivos";
         File archivo = new File(ruta);
         File[] archivos = archivo.listFiles();
         for (File newarchivo : archivos) {
             if (!newarchivo.getName().equals("Resultado.txt")) {
-                controlador.LecturaResultado(ruta + "\\" + newarchivo.getName());
+                controlador.LecturaResultado(ruta + "\\" + newarchivo.getName() );
             }
         }
-        controlador.guardaResultado();
-        i = 0;
-        System.out.flush();
-
+       }catch(NullPointerException ex){
+           
+       }
     }
 }
 

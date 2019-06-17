@@ -23,7 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ControladorTexto {
-    String ruta = "archivo.txt";
+    String ruta = "C:\\Users\\Fernanda\\Documents\\NetBeansProjects\\ManejoDeArchivosTexto\\src\\ec\\edu\\ups\\archivos\\archivo.txt";
        private String linea;
     private List<Texto> lista;
 
@@ -31,11 +31,6 @@ public class ControladorTexto {
         lista = new ArrayList<>();
     }
     
-    /**
-     * Metodo que sirve para Escribir en un archivo
-     * @param palabra
-     * @throws IOException 
-     */
     public void Escritura(String palabra) throws IOException{
           try {
          FileWriter archivo = new FileWriter(ruta, true);
@@ -54,9 +49,9 @@ public class ControladorTexto {
          }
       
     }
-    /**
-     * Metodo que nos devuelve todo lo que posee un archivo
-     */
+    
+     //Metodo que nos devuelve todo lo que posee un archivo
+   
     public void Lectura(){
          try {
 
@@ -78,9 +73,9 @@ public class ControladorTexto {
             System.out.println("error de lectura");
         }
     }
-    /**
-     * Este metodo sirve para Leer la linea y luego lo compara
-     */
+    
+     //Este metodo sirve para Leer la linea y luego lo compara
+    
     private void leerLinea() { 
         String palabras[] = linea.split(" ");
          for(int i = 0; i <palabras.length;i++){
@@ -88,10 +83,7 @@ public class ControladorTexto {
         }
      
     }
-    /**
-     * Metodo para comparar Palabras repetidas
-     * @param palabra 
-     */
+    
     private void compararPalabra(String palabra) {
         int con = 0;
         for (Texto  palabralista: lista) {
@@ -108,11 +100,7 @@ public class ControladorTexto {
             lista.add(newPalabra);
         }
     }
-    /**
-     * Este metodo guarda en una archivo resultado las veces repetidas 
-     * 
-     * @throws IOException 
-     */
+   
     public void guardaResultado() throws IOException {
         Collections.sort(lista, new Comparator<Texto>(){
             public int compare(Texto p1, Texto p2){
@@ -120,12 +108,12 @@ public class ControladorTexto {
             }
         });
         try {
-            String ruta2 = "Resultado.txt";
+            String ruta2 = "C:\\Users\\Fernanda\\Documents\\NetBeansProjects\\ManejoDeArchivosTexto\\src\\ec\\edu\\ups\\archivos\\Resultado.txt";
             FileWriter archivo = new FileWriter(ruta2, false);
             
             BufferedWriter escritura = new BufferedWriter(archivo);
             for (Texto palabraEscribir : lista) {
-                escritura.append(palabraEscribir.getNombre()+"   veces repetidas:"+palabraEscribir.getCantidad());
+                escritura.append(palabraEscribir.getNombre()+" : "+palabraEscribir.getCantidad());
                 escritura.newLine();
             }
             

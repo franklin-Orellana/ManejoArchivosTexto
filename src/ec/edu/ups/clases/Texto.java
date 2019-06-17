@@ -35,10 +35,7 @@ public class Texto {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-    /**
-     * ToString que imprime
-     * @return 
-     */
+
     @Override
     public String toString() {
         return "Palabras{" + "nombre=" + nombre + ", cantidad=" + cantidad + '}';
