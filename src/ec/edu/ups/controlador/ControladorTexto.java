@@ -86,8 +86,6 @@ public class ControladorTexto {
             compararPalabra(palabras[i].toLowerCase());
         }
      
-       
-    
     }
     /**
      * Metodo para comparar Palabras repetidas
